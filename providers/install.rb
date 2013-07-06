@@ -20,10 +20,12 @@
 action :create do
 	from_source_message = new_resource.from_source ? ' from source' : ''
 	from_source_arg = new_resource.from_source ? '-s' : ''
+	binary_tarball_arg = new_resource.binary_tarball ? "-b #{new_resource.binary_tarball}" : ''
+	source_tarball_arg = new_resource.source_tarball ? "-u #{new_resource.source_tarball}" : ''
 	bash "Installing node.js #{new_resource.version}#{from_source_message}..." do
 		code <<-EOH
 			#{node['nvm']['source']}
-			nvm install #{from_source_arg} #{new_resource.version}
+			nvm install #{from_source_arg} #{binary_tarball_arg} #{source_tarball_arg} #{new_resource.version}
 		EOH
 	end
 	# break FC021: Resource condition in provider may not behave as expected

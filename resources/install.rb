@@ -23,3 +23,5 @@ default_action :create
 attribute :version, :kind_of => String, :name_attribute => true
 attribute :from_source, :kind_of => [TrueClass, FalseClass], :default => false
 attribute :alias_as_default, :kind_of => [TrueClass, FalseClass], :default => false
+attribute :binary_tarball, :kind_of => String, :default => nil
+attribute :source_tarball, :kind_of => String, :default => nil

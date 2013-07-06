@@ -19,6 +19,8 @@ Install nvm and node.js version 0.10.5.
 	# install node.js v0.10.5
 	nvm_install 'v0.10.5'  do
 		from_source false
+		binary_tarball 'http://myserver/node-v0.10.5-linux-x64.tar.gz'
+		source_tarball 'http://myserver/node-v0.10.5.tar.gz'
 		alias_as_default true
 		action :create
 	end
